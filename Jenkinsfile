@@ -4,7 +4,8 @@ pipeline{
      stages{
           stage('checkout'){
                steps{
-                    git "https://github.com/kavinduthilan/react-docker.git"
+                    git branch: 'main', url: 'https://github.com/kavinduthilan/react-docker.git'
+                    // git "https://github.com/kavinduthilan/react-docker.git"
                }
           }
 
