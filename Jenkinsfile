@@ -9,16 +9,20 @@ pipeline{
                }
           }
 
-        }
-        stage('Build Docker Image') {
+          stage('Build Docker Image') {
             steps {
                 bat 'docker build -t react-app:latest .'
             }
         }
+
+        
         stage('Deploy to Kubernetes') {
             steps {
                 sh 'kubectl apply -f deployment.yaml'
                 sh 'kubectl apply -f service.yaml'
             }
         }
+
+        }
+        
      }
