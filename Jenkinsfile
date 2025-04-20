@@ -9,15 +9,10 @@ pipeline{
                }
           }
 
-          stage('Build React App') {
-            steps {
-                sh 'npm install'
-                sh 'npm run build'
-            }
         }
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t react-app:latest .'
+                bat 'docker build -t react-app:latest .'
             }
         }
         stage('Deploy to Kubernetes') {
